@@ -8,10 +8,9 @@ class Accordion extends Component {
 		this.state = {
 			activeTab: 0
 		};
-		this.activateTab = this.activateTab.bind(this);
     }
     
-	activateTab(index) {
+	activateTab = (index) => {
 		this.setState(prev => ({
 			activeTab: prev.activeTab === index ? -1 : index
 		}));

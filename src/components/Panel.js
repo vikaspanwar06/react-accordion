@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
 
 class Panel extends Component {
@@ -9,11 +8,11 @@ class Panel extends Component {
 		this.state = {
 			height: 0
 		};
+		this.activeHeight = React.createRef();
 	}
 
 	componentDidMount() {
-        const el = ReactDOM.findDOMNode(this);
-        const height = el.querySelector('.panel__inner').scrollHeight;
+        const height = this.activeHeight.current.scrollHeight;
         this.setState({
             height
         });
@@ -35,7 +34,7 @@ class Panel extends Component {
 					onClick={ activateTab }>
 					{ label }
 				</button>
-				<div className='panel__inner'
+				<div ref={this.activeHeight} className='panel__inner'
 					style={ innerStyle }
 					aria-hidden={ !isActive }>
 					<ul className='panel__content'>
