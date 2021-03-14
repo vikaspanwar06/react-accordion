@@ -7,7 +7,8 @@ class SideMenu extends Component {
       {
         label: 'Home',
         sublink1: "Homepage",
-        linkTo1: "/"
+        linkTo1: "/",
+        linkTo2: "/"
       },
       {
         label: 'About',
