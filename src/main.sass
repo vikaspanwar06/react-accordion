@@ -1,0 +1,75 @@
+$brown : #f0ebe1
+$black : #372717
+$gray : #756658
+
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    text-decoration: none
+    list-style: none
+    font-family: 'Arial'
+.sideMenu
+    position: fixed
+    top: 0
+    left: 0
+    width: 300px
+    height: 100%
+    background: #eee    
+.text-center
+    font-size: 40px
+    width: 100%
+    text-align: center
+.accordion
+	width: 100%
+	max-width: 470px
+.panel
+	&__label
+		position: relative
+		display: block
+		width: 100%
+		background: none
+		border: none
+		text-align: left
+		padding: 20px 0px 10px 15px
+		font-weight: 500
+		font-size: 18px
+		transition: color .2s linear
+		cursor: pointer
+		&:focus
+			outline: none
+		&:after,
+		&:before
+			content: ""
+			position: absolute
+			right: 25px
+			top: 50%
+			width: 22px
+			height: 2px
+			background-color: $black
+		&:before
+			transform: rotate(-90deg)
+			transition: transform .35s cubic-bezier(.65, .05, .36, 1)
+	&[aria-expanded="true"]
+		.panel__content
+			opacity: 1
+		.panel__label
+			color: #957029
+			&:before
+				transform: rotate(0deg)
+	&__inner
+		overflow: hidden
+		will-change: height
+		transition: height .4s cubic-bezier(.65, .05, .36, 1)
+	&__content
+		margin: 15px 25px 25px
+		font-size: 16px
+		color: $gray
+		opacity: 0
+		transition: opacity .3s linear .18s
+
+.panel__inner
+    background: #fff
+.panel__content li
+    margin: 10px 0px
+    color: #000                
